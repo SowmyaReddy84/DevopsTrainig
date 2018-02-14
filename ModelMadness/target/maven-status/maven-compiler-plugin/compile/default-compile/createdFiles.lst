@@ -1,0 +1,16 @@
+com\ModelMadness\dao\ProductDao.class
+com\ModelMadness\model\Cart.class
+com\ModelMadness\dao\CategoryDao.class
+com\ModelMadness\daoimpll\ProductDaoImpl.class
+com\ModelMadness\model\Supplier.class
+com\ModelMadness\dao\CartDao.class
+com\ModelMadness\daoimpll\UserDaoImpl.class
+com\ModelMadness\config\ApplicationContextConfig.class
+com\ModelMadness\dao\UserDao.class
+com\ModelMadness\model\Category.class
+com\ModelMadness\daoimpll\CategoryDaoImpl.class
+com\ModelMadness\model\Product.class
+com\ModelMadness\model\User.class
+com\ModelMadness\dao\SupplierDao.class
+com\ModelMadness\daoimpll\SupplierDaoImpl.class
+com\ModelMadness\daoimpll\CartDaoImpl.class
