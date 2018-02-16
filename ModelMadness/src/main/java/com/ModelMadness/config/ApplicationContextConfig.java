@@ -16,10 +16,12 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.ModelMadness.daoimpll.CartDaoImpl;
 import com.ModelMadness.daoimpll.CategoryDaoImpl;
 import com.ModelMadness.daoimpll.ProductDaoImpl;
 import com.ModelMadness.daoimpll.SupplierDaoImpl;
 import com.ModelMadness.daoimpll.UserDaoImpl;
+import com.ModelMadness.model.Cart;
 import com.ModelMadness.model.Category;
 import com.ModelMadness.model.Product;
 import com.ModelMadness.model.Supplier;
@@ -27,17 +29,8 @@ import com.ModelMadness.model.User;
 
 
 
-
-
-
-
-
-//import com.niit.dao.ProductDao;
-//import com.niit.dao.ProductDaoImp;
-//import com.niit.model.Product;
-
 @Configuration
-@ComponentScan("com.ModelMadness.*")
+@ComponentScan("com.*")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 
@@ -68,6 +61,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
 			sessionBuilder.addProperties(getHibernateProperties());
 		return sessionBuilder.buildSessionFactory();
 	}
@@ -80,29 +74,32 @@ public class ApplicationContextConfig {
 		return transactionManager;
 
 	}
-//
-//	 @Autowired
-// @Bean(name = "userD")
-//	 public UserDaoImpl getUserDao(SessionFactory sessionFactory) {
-//		 
-//	 return new UserDaoImpl(sessionFactory);
-//	}
-//	 
-//	 @Autowired
-//	 @Bean(name = "supplierD")
-//		 public SupplierDaoImpl getSupplierDao(SessionFactory sessionFactory) {
-//		 return new SupplierDaoImpl(sessionFactory);
-//		}
-//	 
-//	 @Autowired
-//	 @Bean(name="categoryD")
-//	 public CategoryDaoImpl getCategoryDao(SessionFactory sessionFactory){
-//		 return new CategoryDaoImpl(sessionFactory);
-//	 }
+
 	 @Autowired
 	 @Bean(name="productDao")
 	 public ProductDaoImpl getProductDao(SessionFactory sessionFactory){
 		 return new ProductDaoImpl(sessionFactory);
+	 }
+	 @Autowired
+	 @Bean(name="categoryDao")
+	 public CategoryDaoImpl getCategoryDao(SessionFactory sessionFactory){
+		 return new CategoryDaoImpl(sessionFactory);
+	 }
+	 
+	 @Autowired
+	 @Bean(name="userDao")
+	 public UserDaoImpl getUserDaoImpl(SessionFactory sessionFactory){
+		 return new UserDaoImpl(sessionFactory);
+	 }
+	 @Autowired
+	 @Bean(name="supplierDao")
+	 public SupplierDaoImpl getSupplierDaoImpl(SessionFactory sessionFactory){
+		 return new SupplierDaoImpl(sessionFactory);
+	 }
+	 @Autowired
+	 @Bean(name="cartDao")
+	 public CartDaoImpl getCartDaoImpl(SessionFactory sessionFactory){
+		 return new CartDaoImpl(sessionFactory);
 	 }
 
 }

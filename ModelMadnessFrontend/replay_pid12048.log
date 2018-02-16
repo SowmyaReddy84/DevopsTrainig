@@ -1,0 +1,38 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 168 ciObject found
+ciMethod java/lang/Object hashCode ()I 2049 1 256 0 -1
+ciMethod java/lang/Object equals (Ljava/lang/Object;)Z 2097 1 6842 0 64
+ciMethod java/lang/ref/Reference get ()Ljava/lang/Object; 1161 1 145 0 -1
+ciMethod java/lang/Thread holdsLock (Ljava/lang/Object;)Z 0 0 1 0 -1
+ciMethod java/util/Map remove (Ljava/lang/Object;)Ljava/lang/Object; 0 0 1 0 -1
+ciMethod java/io/InputStream close ()V 0 0 1 0 -1
+ciMethod java/lang/ref/ReferenceQueue poll ()Ljava/lang/ref/Reference; 2105 1 10889 0 -1
+ciMethod java/util/WeakHashMap maskNull (Ljava/lang/Object;)Ljava/lang/Object; 2057 1 14550 0 64
+ciMethod java/util/WeakHashMap eq (Ljava/lang/Object;Ljava/lang/Object;)Z 1601 1 8166 0 0
+ciMethod java/util/WeakHashMap hash (Ljava/lang/Object;)I 2057 1 14578 0 0
+ciMethod java/util/WeakHashMap indexFor (II)I 3073 1 14664 0 0
+ciMethod java/util/WeakHashMap expungeStaleEntries ()V 3073 1 6695 0 2368
+ciMethod java/util/WeakHashMap getTable ()[Ljava/util/WeakHashMap$Entry; 3073 1 14581 0 0
+ciMethod java/util/WeakHashMap remove (Ljava/lang/Object;)Ljava/lang/Object; 3073 89 4855 0 0
+ciMethod java/util/zip/ZipFile releaseInflater (Ljava/util/zip/Inflater;)V 2041 1 2808 0 0
+ciMethod java/util/zip/ZipFile access$000 (Ljava/util/zip/ZipFile;)Ljava/util/Map; 1217 1 152 0 0
+ciMethod java/util/zip/ZipFile access$100 (Ljava/util/zip/ZipFile;Ljava/util/zip/Inflater;)V 2041 1 2808 0 0
+ciMethod java/util/zip/ZipFile access$400 (Ljava/util/zip/ZipFile;)J 2081 1 8713 0 -1
+ciMethod java/util/zip/ZipFile access$1000 (JJ)V 1537 1 2043 0 -1
+ciMethod java/util/Deque add (Ljava/lang/Object;)Z 0 0 1 0 -1
+ciMethod java/util/ArrayDeque doubleCapacity ()V 0 0 1 0 -1
+ciMethod java/util/ArrayDeque addLast (Ljava/lang/Object;)V 3073 1 2808 0 0
+ciMethod java/util/ArrayDeque add (Ljava/lang/Object;)Z 3073 1 2808 0 0
+ciMethod java/util/zip/ZipFile$ZipFileInputStream close ()V 3073 1 5524 0 2144
+ciMethod java/util/zip/Inflater reset ()V 3065 1 2822 0 0
+ciMethod java/util/zip/Inflater end ()V 1 1 321 0 -1
+ciMethod java/util/zip/Inflater ensureOpen ()V 2049 1 5386 0 96
+ciMethod java/util/zip/Inflater ended ()Z 3169 1 5083 0 0
+ciMethod java/util/zip/Inflater reset (J)V 3073 1 384 0 -1
+ciMethod java/util/zip/ZStreamRef address ()J 2057 1 29283 0 0
+ciMethod java/util/zip/ZipFile$ZipFileInflaterInputStream close ()V 2049 1 5405 0 -1
+ciMethod java/util/zip/InflaterInputStream close ()V 2041 1 2812 0 0
+ciMethodData java/util/zip/ZStreamRef address ()J 2 29283 orig 264 8 177 212 119 0 0 0 0 88 251 79 22 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 17 139 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData java/util/zip/Inflater ensureOpen ()V 2 5386 orig 264 8 177 212 119 0 0 0 0 80 238 79 22 0 0 0 0 8 2 0 0 80 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 25 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 81 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 6 0 2 0 0 0 192 0 0 0 255 255 255 255 7 0 3 0 0 0 0 0 data 24 0x30007 0x140a 0x60 0x0 0xa0002 0x0 0xd0007 0x0 0x30 0x0 0x140002 0x0 0x1c0005 0x0 0x1924cf60 0x140a 0x0 0x0 0x210007 0x140a 0x30 0x0 0x2a0002 0x0 oops 1

@@ -15,7 +15,7 @@ import com.ModelMadness.model.Supplier;
 
 
 
-@Repository("supplierD")
+@Repository("supplierDao")
 @Transactional
 public class SupplierDaoImpl implements SupplierDao{
 	
@@ -45,16 +45,17 @@ public class SupplierDaoImpl implements SupplierDao{
 		
 	}
 
-	public boolean saveOrUpdate(Supplier supplier) {
+	public int saveOrUpdate(Supplier supplier) {
 		try {
+			supplier.setRole("ROLE_SUPPLIER");
 			sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 		} catch (Exception e) {
 			// if any excpetion comes during execute of try block, catch will
 			// excute
 			e.printStackTrace();
-			return false;
+			return 0;
 		}
-		return true;
+		return 1;
 	}
 
 

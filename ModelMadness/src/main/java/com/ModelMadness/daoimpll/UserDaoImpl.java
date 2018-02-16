@@ -24,7 +24,7 @@ import com.ModelMadness.model.User;
 
 //Note : we will get errors  - will soleve tomorrow
 
-@Repository("userD")
+@Repository("userDao")
 @Transactional
 public class UserDaoImpl implements UserDao {
 

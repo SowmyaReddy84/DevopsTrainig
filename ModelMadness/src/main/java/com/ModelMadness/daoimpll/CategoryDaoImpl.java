@@ -98,7 +98,7 @@ public boolean delete(Category category) {
 		}
 	}
 
-	public boolean update(Category category) {
+	public int saveOrUpdate(Category category) {
 		try {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
@@ -108,10 +108,10 @@ public boolean delete(Category category) {
 			session.getTransaction().commit();
 			session.close();
 			
-			return true;
+			return 1;
 		} catch (Exception e) { // TODO Auto-generated catch block
 								// e.printStackTrace();
-			return false;
+			return 0;
 		}
 	}
 	

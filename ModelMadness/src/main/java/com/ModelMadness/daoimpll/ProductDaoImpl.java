@@ -2,7 +2,7 @@ package com.ModelMadness.daoimpll;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,7 +16,6 @@ import com.ModelMadness.model.Product;
 
 
 @Repository("productDao")
-
 @Transactional
 public class ProductDaoImpl implements ProductDao {
 	@Autowired
@@ -46,16 +45,16 @@ public class ProductDaoImpl implements ProductDao {
 		
 	}
 
-	public boolean saveOrUpdate(Product product) {
+	public int saveOrUpdate(Product product) {
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(product);
 		} catch (Exception e) {
 			// if any excpetion comes during execute of try block, catch will
 			// excute
 			e.printStackTrace();
-			return false;
+			return 0;
 		}
-		return true;
+		return 1;
 	}
 	public boolean deleteById(int pid) {
 		try{
@@ -71,7 +70,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public List<Product> getAllProduct() {
-		return sessionFactory.getCurrentSession().createQuery("from Supplier").list();
+		return sessionFactory.getCurrentSession().createQuery("From Product").list();
 	}
 
 	public Product getProductId(int pid) {

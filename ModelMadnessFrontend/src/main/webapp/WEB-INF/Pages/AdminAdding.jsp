@@ -23,7 +23,7 @@
 			
 			 #exTab1 .tab-content {
   				color : white;
-  				background-color: #428bca;
+  				background-color: teal;
   				padding : 5px 	15px;
 			}
 
@@ -40,7 +40,7 @@
   /* Set the fixed height of the footer here */
   height: 50px;
   color:white;
-  background-color: black;
+  background-color:;
 }
 
 	 

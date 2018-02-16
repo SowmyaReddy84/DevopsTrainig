@@ -1,5 +1,7 @@
 package com.ModelMadness.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,9 +15,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 
-
+@SuppressWarnings("serial")
+@Component
 @Entity
-public class Product {
+public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue
@@ -28,23 +31,7 @@ public class Product {
 	
 	
 	@Transient
-	MultipartFile pimage;
-	private String pimage1;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	private MultipartFile pimg;
 	public int getPid() {
 		return pid;
 	}
@@ -75,11 +62,13 @@ public class Product {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public String getPimage1() {
-		return pimage1;
+	public MultipartFile getPimg() {
+		return pimg;
 	}
-	public void setPimage1(String pimage1) {
-		this.pimage1 = pimage1;
+	public void setPimg(MultipartFile pimg) {
+		this.pimg = pimg;
 	}
+	
+	
 
 }

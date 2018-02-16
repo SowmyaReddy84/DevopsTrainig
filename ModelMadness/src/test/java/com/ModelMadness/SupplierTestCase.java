@@ -29,9 +29,9 @@ public class SupplierTestCase {
 	@BeforeClass
 	public static void initialize(){
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.ModelMadness.*");
+		context.scan("com.*");
 		context.refresh();
-		supplierDao=(SupplierDao)context.getBean("supplierD");
+		supplierDao=(SupplierDao)context.getBean("supplierDao");
 		supplier=context.getBean(Supplier.class);
 		
 		
@@ -45,7 +45,7 @@ public class SupplierTestCase {
 		supplier.setSname("sujika");
 		supplier.setPassword("sujika");
 		supplier.setRole("ROLE_SUPPLIER");
-		boolean flag=supplierDao.saveOrUpdate(supplier);
+		boolean flag=supplierDao.insert(supplier);
 		System.out.println("insertion of supplier Details completed");
 		assertEquals("SupplierTestCase",true,flag);
 		

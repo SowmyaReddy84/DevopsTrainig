@@ -31,29 +31,12 @@
 <spring:url value="/resources/css/HomePage.css" var="style"/><link rel="stylesheet" href="${style}">
    
 </head>
-<body><%@include file="header.jsp"%>
+<body>
+<%@include file="header.jsp"%>
 	<%@include file="Carousel1.jsp"%>
-	<c:forEach var="product" items="${pList}" varStatus="status">
-   <div class = "col-sm-4 col-md-4 ">
-      <div class = "thumbnail">
-       
-          <spring:url value="/resources/img/${product.pid}.jpg" var="imgs" /><img height="150vh" max-width="90%" src="${imgs}"/>
-      </div>
-      
-      <div class = "caption">
-         <h4><strong>${product.pname}</strong></h4>
-
-   
-         <p>
-            <a href ="prodETAIL?Id=${product.pid}"  class = "btn btn-primary" role = "button">
-               VIEW DETAILS
-            </a> 
-           
-         </p>
-         
-      </div>
-   </div>
-   </c:forEach>
+	<%@include file="Products.jsp"%>
+	
+	
 
 
 </body>

@@ -29,7 +29,7 @@ public class ProductTestCase {
 	@BeforeClass
 	public static void initialize(){
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.ModelMadness.*");
+		context.scan("com.*");
 		context.refresh();
 		productDao=(ProductDao)context.getBean("productDao");
 		product=context.getBean(Product.class);
@@ -40,10 +40,10 @@ public class ProductTestCase {
 	@Ignore
 	@Test
 	public void createProductTestCase(){
-		product.setPid(121);
-		product.setPrice(3635.00);
-		product.setPname("shirts");
-		product.setStock(100);
+		product.setPid(1);
+		product.setPrice(5263.00);
+		product.setPname("TOPS");
+		product.setStock(120);
 	
 		boolean flag=productDao.insert(product);
 		System.out.println("insertion is completed");

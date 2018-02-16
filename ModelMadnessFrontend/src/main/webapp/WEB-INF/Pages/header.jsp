@@ -1,3 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<title>Ornatus</title>
+
+<!-- Bootstrap core CSS -->
+
+<!--Pulling Awesome Font -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<spring:url value="/resources/css/wired.css" var="style"/><link rel="stylesheet" href="${style}">
+<spring:url value="/resources/css/home.css" var="style"/><link rel="stylesheet" href="${style}">
+<spring:url value="/resources/css/HomePage.css" var="style"/><link rel="stylesheet" href="${style}">
+   <script>
+			function formSubmit() {
+				document.getElementById("logoutForm").submit();
+			}
+		</script>
+</head>
+<body>
+
 <header>
       <nav class="navbar navbar-default" role="naviagation">
   <div class="container-fluid">
@@ -18,39 +57,7 @@
   
       <ul class="nav navbar-nav"style=margin-right:30px">
          <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-   		<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <span class="caret"></span></a>
-					<ul class="dropdown-menu multi-column" role="menu">
-						<li>
-							<div class="row">
-								<div class="col-sm-6">
-									<ul class="dropdown-menu">
-										<li><a href="#">Affiliates</a></li>
-										<li><a href="#">Basis Products</a></li>
-										<li><a href="#">Books</a></li>
-										<li><a href="#">Brokers</a></li>
-										<li><a href="#">Calendars</a></li>
-										<li><a href="#">Carriers</a></li>
-										<li><a href="#">Classes</a></li>
-										<li><a href="#">Counterparties</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-6">
-									<ul class="dropdown-menu">
-										<li><a href="#">Disaggregation Indicators</a></li>
-										<li><a href="#">Locations</a></li>
-										<li><a href="#">Products</a></li>
-										<li><a href="#">Program Changes</a></li>
-										<li><a href="#">Publishers</a></li>
-										<li><a href="#">Regions</a></li>
-										<li><a href="#">Strategies</a></li>
-										<li><a href="#">Traders</a></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</li>
+
                  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boys & Men <span class="caret"></span></a>
           <ul class="dropdown-menu multi-column" role="menu">
@@ -145,9 +152,24 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Login/Signup<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="SignIn"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></li>
+            <li><c:if test="${pageContext.request.userPrincipal.name== null}">
+            
+            <a href="logins"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></c:if></li>
             <li><a href="Registration"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Register</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+            <li><c:if test="${pageContext.request.userPrincipal.name!= null}">
+            <a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></c:if></li>
+            <li> <c:if test="${pageContext.request.userPrincipal.name!= null}">
+         <a href="totablecart" class="btn btn-primary">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</a>
+        <a href="#" class="btn btn-link"><span ></span>Hi :${pageContext.request.userPrincipal.name}
+        </a>
+        </c:if>
+        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+        <form action="${logoutUrl}" method="post" id="logoutForm">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+		</form>
+            </li>
          </ul>
         </li>
       </ul>
@@ -157,4 +179,6 @@
 </nav>
       
     </header>
+    </body>
+   </html>
    

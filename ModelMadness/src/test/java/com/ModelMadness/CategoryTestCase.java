@@ -27,7 +27,7 @@ public class CategoryTestCase {
 	@BeforeClass
 	public static void initialize(){
 		context=new AnnotationConfigApplicationContext();
-		context.scan("com.ModelMadness.*");
+		context.scan("com.*");
 		context.refresh();
 		categoryDao=(CategoryDao)context.getBean("categoryDao");
 		category=context.getBean(Category.class);
@@ -36,7 +36,7 @@ public class CategoryTestCase {
 	@Ignore
 	@Test
 	public void createCategoryTest(){
-		category.setCid("C1102");
+		category.setCid("s1100");
 		category.setCname("HomeDecor");
 		category.setDescription("Furnitures,wall stickers");
 		boolean flag=categoryDao.save(category);

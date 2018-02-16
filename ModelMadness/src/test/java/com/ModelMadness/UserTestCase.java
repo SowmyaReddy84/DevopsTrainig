@@ -35,13 +35,13 @@ public class UserTestCase {
 	@BeforeClass
 	public static void initialize() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.ModelMadness.*");
+		context.scan("com.*");
 		context.refresh();
 
 		// get the userDAO from context
 		// get the user from context
 
-		userDao = (UserDao) context.getBean("userD");
+		userDao = (UserDao) context.getBean("userDao");
 		
 		user=context.getBean(User.class);
 

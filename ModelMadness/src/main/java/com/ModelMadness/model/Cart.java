@@ -2,46 +2,41 @@ package com.ModelMadness.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
-@Table(name="Cart")
 public class Cart {
+	
 	@Id
-	private int cid;
-	private int id_userid;
-	private int pid;
-	private String prdName;
-	private Double prdPrice;
-	public int getCid() {
-		return cid;
+	private int catid;
+	public int getCatid() {
+		return catid;
 	}
-	public void setCid(int cid) {
-		this.cid = cid;
+	public void setCatid(int catid) {
+		this.catid = catid;
 	}
-	public int getId_userid() {
-		return id_userid;
+	public String getUserid() {
+		return Userid;
 	}
-	public void setId_userid(int id_userid) {
-		this.id_userid = id_userid;
+	public void setUserid(String userid) {
+		Userid = userid;
 	}
-	public int getPid() {
-		return pid;
+	public int getProductId() {
+		return productId;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
-	public String getPrdName() {
-		return prdName;
+	public int getProdPrice() {
+		return prodPrice;
 	}
-	public void setPrdName(String prdName) {
-		this.prdName = prdName;
+	public void setProdPrice(int prodPrice) {
+		this.prodPrice = prodPrice;
 	}
-	public Double getPrdPrice() {
-		return prdPrice;
-	}
-	public void setPrdPrice(Double prdPrice) {
-		this.prdPrice = prdPrice;
-	}
+	private String Userid;
+	private int productId;
+	private int prodPrice;
 
 }
