@@ -18,6 +18,8 @@ import com.ModelMadness.model.Product;
 @Repository("productDao")
 @Transactional
 public class ProductDaoImpl implements ProductDao {
+	
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	

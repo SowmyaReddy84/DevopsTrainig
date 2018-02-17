@@ -25,6 +25,9 @@ public class User {
 
 	@Column(name = "mobile")
 	private String mobile;
+	
+	private String Adress;
+	
 
 	// getters + setters
 
@@ -66,6 +69,14 @@ public class User {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public String getAdress() {
+		return Adress;
+	}
+
+	public void setAdress(String adress) {
+		Adress = adress;
 	}
 
 }

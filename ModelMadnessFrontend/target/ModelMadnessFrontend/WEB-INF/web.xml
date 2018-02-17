@@ -22,7 +22,8 @@
   
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/Spring-Security.xml,</param-value>		
+		<param-value>/WEB-INF/dispatcher-servlet.xml,
+		/WEB-INF/Spring-Security.xml</param-value>		
 	</context-param>
 		
 	<listener>

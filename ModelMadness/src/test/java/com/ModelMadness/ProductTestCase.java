@@ -17,6 +17,7 @@ import com.ModelMadness.model.Product;
 
 
 public class ProductTestCase {
+	
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	

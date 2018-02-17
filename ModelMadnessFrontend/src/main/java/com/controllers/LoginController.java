@@ -39,7 +39,7 @@ public class LoginController {
 	 @RequestMapping("/logins")
 		public String getLog()
 		{
-			return "SingIn";
+			return "SignIn";
 		}
 	 @RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 		public ModelAndView defaultPage() {
@@ -58,12 +58,12 @@ public class LoginController {
 				@RequestParam(value = "logout", required = false) String logout, final RedirectAttributes redirectAttributes) {
 		 		System.out.println("login page");
 			ModelAndView model = new ModelAndView();
-			String surl="";
+		
 			if (error != null) {
 				model.addObject("error", "Invalid username and password!");
 				System.out.println("Error HERRRRRRRRRe");
-//				model.setViewName("SingInPage");
-				return "SingIn";
+
+				return "SignIn";
 			}
 
 			else if (logout != null) {

@@ -80,6 +80,7 @@ public class ApplicationContextConfig {
 	 public ProductDaoImpl getProductDao(SessionFactory sessionFactory){
 		 return new ProductDaoImpl(sessionFactory);
 	 }
+	 
 	 @Autowired
 	 @Bean(name="categoryDao")
 	 public CategoryDaoImpl getCategoryDao(SessionFactory sessionFactory){
@@ -91,11 +92,13 @@ public class ApplicationContextConfig {
 	 public UserDaoImpl getUserDaoImpl(SessionFactory sessionFactory){
 		 return new UserDaoImpl(sessionFactory);
 	 }
+	 
 	 @Autowired
 	 @Bean(name="supplierDao")
 	 public SupplierDaoImpl getSupplierDaoImpl(SessionFactory sessionFactory){
 		 return new SupplierDaoImpl(sessionFactory);
 	 }
+	 
 	 @Autowired
 	 @Bean(name="cartDao")
 	 public CartDaoImpl getCartDaoImpl(SessionFactory sessionFactory){

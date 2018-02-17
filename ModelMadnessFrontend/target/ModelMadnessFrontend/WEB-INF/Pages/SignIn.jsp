@@ -52,11 +52,11 @@
 			
 			
 			<div class="form-group">
-				<input type="text" name="id" id="loginid" class="form-control input-lg" placeholder="User Id">
+				<input type="text" name="id" path="id" class="form-control input-lg" placeholder="User Id">
 			</div>
 			
 					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+						<input type="password" name="password" path="password" class="form-control input-lg" placeholder="Password">
 					</div>
 				
 					

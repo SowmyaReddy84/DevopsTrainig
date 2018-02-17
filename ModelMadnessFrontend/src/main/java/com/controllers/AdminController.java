@@ -24,8 +24,12 @@ import com.ModelMadness.model.Product;
 import com.ModelMadness.model.Supplier;
 
 
+
+
 @Controller
 public class AdminController {
+	
+	
 	@Autowired
 	Product product;
 	

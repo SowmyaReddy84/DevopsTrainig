@@ -19,10 +19,6 @@ import com.ModelMadness.model.User;
 
 
 
-//import com.niit.shoppingcart.dao.UserDAO;
-//import com.niit.shoppingcart.domain.User;
-
-//Note : we will get errors  - will soleve tomorrow
 
 @Repository("userDao")
 @Transactional
@@ -89,7 +85,7 @@ public class UserDaoImpl implements UserDao {
 	 */
 	public boolean validate(String name, String password) {
 
-		Query query = sessionFactory.getCurrentSession().createQuery("from User where name = ? and password = ?");
+		Query query = sessionFactory.getCurrentSession().createQuery("from User where id = ? and password = ?");
 		query.setString(0, name); // actually the index will start from zero -
 									// will get once exception.
 		query.setString(1, password);

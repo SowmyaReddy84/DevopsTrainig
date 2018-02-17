@@ -8,7 +8,7 @@ import com.ModelMadness.model.Product;
 
 
 
-@Component
+
 
 public interface ProductDao {
 	public boolean insert(Product product);
