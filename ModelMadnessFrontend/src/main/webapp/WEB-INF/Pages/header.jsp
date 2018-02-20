@@ -29,11 +29,7 @@
 <spring:url value="/resources/css/wired.css" var="style"/><link rel="stylesheet" href="${style}">
 <spring:url value="/resources/css/home.css" var="style"/><link rel="stylesheet" href="${style}">
 <spring:url value="/resources/css/HomePage.css" var="style"/><link rel="stylesheet" href="${style}">
-   <script>
-			function formSubmit() {
-				document.getElementById("logoutForm").submit();
-			}
-		</script>
+   
 </head>
 <body>
 
@@ -148,29 +144,45 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+         <li><a href="${pageContext.request.contextPath}/logout">Logout User</a></li>
+      <li>
+          <a href="#" class="btn btn-link"><span ></span>Hi :${pageContext.request.userPrincipal.name}
+         
+        </a>
+        </li>
  
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Login/Signup<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><c:if test="${pageContext.request.userPrincipal.name== null}">
             
-            <a href="logins"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></c:if></li>
-            <li><a href="Registration"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Register</a></li>
+            <a href="login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></c:if></li>
+            <li><a href="register"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Register</a></li>
             <li><c:if test="${pageContext.request.userPrincipal.name!= null}">
-            <a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></c:if></li>
-            <li> <c:if test="${pageContext.request.userPrincipal.name!= null}">
+            <a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></c:if></li>
+            <li> 
          <a href="totablecart" class="btn btn-primary">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</a>
-        <a href="#" class="btn btn-link"><span ></span>Hi :${pageContext.request.userPrincipal.name}
-        </a>
-        </c:if>
-        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+      
+  
+        <%-- <c:url value="/logout" var="logoutUrl" />
         <form action="${logoutUrl}" method="post" id="logoutForm">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
-		</form>
+		</form>--%>
+	
+		<script>
+			function formSubmit() {
+				document.getElementById("logoutForm").submit();
+			}
+		</script>
+		
             </li>
          </ul>
+        </li>
+        <li>
+          <a href="totablecart">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</a>  
         </li>
       </ul>
       

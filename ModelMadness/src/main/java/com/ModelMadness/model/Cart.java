@@ -29,14 +29,20 @@ public class Cart {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public int getProdPrice() {
+
+	
+
+	public double getProdPrice() {
 		return prodPrice;
 	}
-	public void setProdPrice(int prodPrice) {
+	public void setProdPrice(double prodPrice) {
 		this.prodPrice = prodPrice;
 	}
+
+
+
 	private String Userid;
 	private int productId;
-	private int prodPrice;
+	private double prodPrice;
 
 }

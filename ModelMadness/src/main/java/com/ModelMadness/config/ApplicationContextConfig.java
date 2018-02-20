@@ -16,21 +16,23 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.ModelMadness.daoimpll.CartDaoImpl;
+//import com.ModelMadness.daoimpll.CartDaoImpl;
 import com.ModelMadness.daoimpll.CategoryDaoImpl;
 import com.ModelMadness.daoimpll.ProductDaoImpl;
 import com.ModelMadness.daoimpll.SupplierDaoImpl;
 import com.ModelMadness.daoimpll.UserDaoImpl;
+import com.ModelMadness.daoimpll.UserDetailDaoImpl;
 import com.ModelMadness.model.Cart;
 import com.ModelMadness.model.Category;
 import com.ModelMadness.model.Product;
 import com.ModelMadness.model.Supplier;
 import com.ModelMadness.model.User;
+import com.ModelMadness.model.UserDetail;
 
 
 
 @Configuration
-@ComponentScan("com.*")
+@ComponentScan("com")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 
@@ -62,7 +64,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Category.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
-			sessionBuilder.addProperties(getHibernateProperties());
+		sessionBuilder.addAnnotatedClass(UserDetail.class);
+		sessionBuilder.addProperties(getHibernateProperties());
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -75,7 +78,7 @@ public class ApplicationContextConfig {
 
 	}
 
-	 @Autowired
+	 /*@Autowired
 	 @Bean(name="productDao")
 	 public ProductDaoImpl getProductDao(SessionFactory sessionFactory){
 		 return new ProductDaoImpl(sessionFactory);
@@ -99,10 +102,15 @@ public class ApplicationContextConfig {
 		 return new SupplierDaoImpl(sessionFactory);
 	 }
 	 
+//	 @Autowired
+//	 @Bean(name="cartDao")
+//	 public CartDaoImpl getCartDaoImpl(SessionFactory sessionFactory){
+//		 return new CartDaoImpl(sessionFactory);
+//	 }
+//	 
 	 @Autowired
-	 @Bean(name="cartDao")
-	 public CartDaoImpl getCartDaoImpl(SessionFactory sessionFactory){
-		 return new CartDaoImpl(sessionFactory);
-	 }
-
+	 @Bean(name="userDetailsDao")
+	 public UserDetailDaoImpl getUserDetailImpl(SessionFactory sessionFactory){
+		 return new UserDetailDaoImpl(sessionFactory);
+	 }*/
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,8 +32,11 @@ public class IndexController {
 	@Autowired
 	UserDao userDao;
 	
-	
-	
+	@GetMapping("/dummy")
+	public String dummy()
+	{
+		return "dummy";
+	}
 	
 	
 	@RequestMapping("/home")
@@ -45,7 +49,7 @@ public class IndexController {
 		mv.addObject("msg", "Hello world");
 		return mv;
 	}
-	@RequestMapping("/homepage")
+	@RequestMapping("admin/homepage")
 	public ModelAndView getHomePage()
 	{
 		ModelAndView mv=new ModelAndView("index");
@@ -59,8 +63,12 @@ public class IndexController {
 	public String getSignIn(){
 		return "SignIn";
 	}
-	@RequestMapping("Registration")
+	@RequestMapping("signup")
 	public String getRegistration(){
+		return "Registration";
+	}
+	@RequestMapping("register")
+	public String getRegistrationPage(){
 		return "Registration";
 	}
 

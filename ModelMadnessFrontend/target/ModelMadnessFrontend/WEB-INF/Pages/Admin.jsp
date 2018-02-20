@@ -15,6 +15,7 @@
 		
 	</head>	
     <body>
+    <%@include file="header.jsp"%>
     <div class="container">
     <div class="page-header">
         <h1>Admin start your task<span class="pull-right label label-default">:)</span></h1>
@@ -31,7 +32,7 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1primary">
- <form:form modelAttribute="prod" cssClass="form-horizontal" action="saveProduct" method="POST" enctype="multipart/form-data">
+ <form:form modelAttribute="prod" cssClass="form-horizontal" action="./saveProduct?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <label class="control-label col-sm-2" for="pid"><h4 style="color:Black;" ><strong>Product ID:</strong></h4></label>
     <div class="col-sm-8">

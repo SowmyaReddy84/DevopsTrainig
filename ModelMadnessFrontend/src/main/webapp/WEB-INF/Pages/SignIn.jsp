@@ -52,11 +52,11 @@
 			
 			
 			<div class="form-group">
-				<input type="text" name="id" path="id" class="form-control input-lg" placeholder="User Id">
+				<input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Id">
 			</div>
 			
 					<div class="form-group">
-						<input type="password" name="password" path="password" class="form-control input-lg" placeholder="Password">
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
 					</div>
 				
 					
@@ -67,12 +67,12 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-6"><button type="submit" name="submit" value="submit"  class="btn btn-primary btn-block btn-lg">Submit</button></div>
 				
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
-				<div class="col-xs-6 col-md-6"><a href="Admin" class="btn btn-success btn-block btn-lg">Cancel</a></div>
+			
+				<div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Cancel</a></div>
 			</div>
 						
-			
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
 		</form>
 	</div>
 </div>

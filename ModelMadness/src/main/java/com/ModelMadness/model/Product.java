@@ -25,7 +25,13 @@ public class Product implements Serializable {
 	private int pid;
 	private String pname;
 	private String description;
-	private Double price;
+	private double price;
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	private Integer stock;
 	
 	
@@ -50,12 +56,7 @@ public class Product implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(double d) {
-		this.price = d;
-	}
+
 	public int getStock() {
 		return stock;
 	}

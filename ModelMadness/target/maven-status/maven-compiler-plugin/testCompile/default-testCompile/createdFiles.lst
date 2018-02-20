@@ -1,0 +1,7 @@
+com\ModelMadness\ProductTestCase.class
+com\ModelMadness\AppTest.class
+com\ModelMadness\UserTestCase.class
+com\ModelMadness\CategoryTestCase.class
+com\ModelMadness\UserDetailsTestCase.class
+com\ModelMadness\CartTestCase.class
+com\ModelMadness\SupplierTestCase.class

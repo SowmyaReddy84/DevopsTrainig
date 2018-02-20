@@ -36,11 +36,11 @@ public class LoginController {
 		{
 			return "auths";
 		}
-	 @RequestMapping("/logins")
+	 /*@RequestMapping("/logins")
 		public String getLog()
 		{
 			return "SignIn";
-		}
+		}*/
 	 @RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 		public ModelAndView defaultPage() {
 		 	System.out.println("Don1111111111111111111111");
@@ -54,33 +54,35 @@ public class LoginController {
 
 		}
 	 @RequestMapping(value = "/login", method = RequestMethod.GET)
-		public String getLogin(@RequestParam(value = "error", required = false) String error,
-				@RequestParam(value = "logout", required = false) String logout, final RedirectAttributes redirectAttributes) {
-		 		System.out.println("login page");
+		public ModelAndView getLogin(@RequestParam(value = "error", required = false) String error,
+				@RequestParam(value = "logout", required = false) String logout) {
+		 
+		 ModelAndView model = new ModelAndView("SignIn");
+		 		/*System.out.println("login page");
 			ModelAndView model = new ModelAndView();
 		
 			if (error != null) {
 				model.addObject("error", "Invalid username and password!");
 				System.out.println("Error HERRRRRRRRRe");
-
-				return "SignIn";
+				model.setViewName("SignIn");
+				
 			}
 
 			else if (logout != null) {
 				model.addObject("msg", "you have loggedout duccessfully");
 				System.out.println("LogOut");
-//				model.setViewName("LandingPage");
-				return "redirect:homepage";
+			model.setViewName("index");
 				
 			}
 			else
 			{
 			System.out.println("some error");
 			model.setViewName("auths");
-			return "auths";
 			}
+*/			return model;
 			
 
 		}
-
+	 
+	
 }

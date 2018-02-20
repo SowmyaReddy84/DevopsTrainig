@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,9 +20,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ModelMadness.dao.CategoryDao;
 import com.ModelMadness.dao.ProductDao;
 import com.ModelMadness.dao.SupplierDao;
+import com.ModelMadness.dao.UserDao;
 import com.ModelMadness.model.Category;
 import com.ModelMadness.model.Product;
 import com.ModelMadness.model.Supplier;
+import com.ModelMadness.model.User;
 
 
 
@@ -48,6 +51,11 @@ public class AdminController {
 	@Autowired
 	SupplierDao supplierDao;
 	
+	@Autowired
+	UserDao userDao;
+	
+	@Autowired
+	User user;
 	
 	@RequestMapping("/admin")
 	public ModelAndView addProducts(@ModelAttribute("prod")Product product,@ModelAttribute("category")Category category,@ModelAttribute("supplier")Supplier supplier)
@@ -59,7 +67,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping("admin/saveProduct")
+	@RequestMapping("/saveProduct")
 	
 	public String savingProduct(@ModelAttribute("prod") Product product,BindingResult result,HttpServletRequest request, final RedirectAttributes redirectAttributes){
 		System.out.println("After submit");
@@ -89,10 +97,10 @@ public class AdminController {
 		
 		if(count>0){mv.addObject("success", "Product Data Inserted Succefully");}
 		*/
-		return "redirect:/admin/listing";
+		return "redirect:/admin";
 	}
 
-	@RequestMapping("admin/saveCategory")
+	@RequestMapping("/saveCategory")
 	  public String savingCategory(@ModelAttribute("category") Category category, final RedirectAttributes redirectAttributes)
 	  {
 			ModelAndView mv=new ModelAndView();
@@ -102,7 +110,7 @@ public class AdminController {
 			
 		if(count>0){mv.addObject("success", "Category Data Inserted Succefully");}
 			
-			return "redirect:/product";
+			return "redirect:/listing";
 	}
 	@RequestMapping("admin/saveSupplier")
 	  public String savingSupplier(@ModelAttribute("supplier") Supplier supplier, final RedirectAttributes redirectAttributes)
@@ -117,7 +125,7 @@ public class AdminController {
 			return "redirect:/product";
 	}
 	
-	@RequestMapping("admin/listing")
+	@RequestMapping("/listing")
 	   public ModelAndView getAllProduct()
 	   {
 		   ModelAndView mv=new ModelAndView("TableProduct");
@@ -126,6 +134,30 @@ public class AdminController {
 		   return mv;
 	   }
 	
-	
+	@RequestMapping("insertuserd")
+	public String storeuser(@ModelAttribute("userd") User user, final RedirectAttributes redirectAttributes){
+		//		  redirectAttributes.addAttribute("message", "true");
+		//		  redirectAttributes.addAttribute("user",userDetails);
+		ModelAndView mv =new ModelAndView();
+		
+		System.out.println("DOne "+user.getUsername());
+		int count=0;
+		
+		
+		user.setRole("ROLE_USER");
+		count=userDao.saveOrUpdate(user);
+		if(count>0){mv.addObject("success", "you have reistered Succefully");}
+		System.out.println("Done rrrrrrrrrrrrrrr ");
+		return "redirect:/logins";
+	}
+	@RequestMapping("admin/edit.do")
+	   public ModelAndView getEditProduct(@RequestParam(value="Id", required=true) int productId,final RedirectAttributes redirectAttributes)
+	   {
+		   product=productDao.getProductId(productId);
+		   System.out.println("ddddddddddddddddd"+product.getPname());
+		   ModelAndView mv=new ModelAndView("FormAddProduct");
+		   mv.addObject("prod",product);
+		   return mv;
+	   }
 
 }

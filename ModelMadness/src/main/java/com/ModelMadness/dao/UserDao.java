@@ -34,7 +34,7 @@ public interface UserDao {
 	// validate the credentials  -  validate
 	//WE are going to use spring security in future.
 	//we can delete this method. after using spring security.
-	public boolean validate(String id, String password);
+	public boolean validate(String userid, String password);
 	
 	// get all users   - list
 	
@@ -43,7 +43,8 @@ public interface UserDao {
 	
 	//get user details based on userID
 	
-	public User get(String id);
+	public User get(String userid);
+	public int saveOrUpdate(User user);
 	
 	}
 

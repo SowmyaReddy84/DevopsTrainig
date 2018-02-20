@@ -36,7 +36,7 @@ public class CartTestCase {
 	@Test
 	public void createCartTest(){
 		cart.setCatid(121);
-		cart.setProdPrice(2500);
+		cart.setProdPrice(2635.88);
 		cart.setProductId(12);
 		cart.setUserid("sowmya");
 		boolean flag=cartDao.insert(cart);

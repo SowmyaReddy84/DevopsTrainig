@@ -49,10 +49,10 @@ public class UserTestCase {
 	@Ignore
 	@Test
 	public void createUserTestCase() {
-		user.setId("10");
-		user.setName("SOWMYA REDDY");
-		user.setPassword("SWEETY");
-		user.setRole("ROLE_SUPPLIER");
+		user.setUserid("sai@gmail.com");
+		user.setPassword("sai");
+		user.setRole("ROLE_USER");
+		user.setUsername("sai");
 		//user.setMobile(9815);
 		boolean flag = userDao.insert(user);
 		System.out.println("saved");

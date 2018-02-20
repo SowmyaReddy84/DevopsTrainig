@@ -32,7 +32,9 @@ public class UserDaoImpl implements UserDao {
 	 public UserDaoImpl(SessionFactory sessionFactory) {
 	 this.sessionFactory = sessionFactory;
 	 }
-
+	 public Session getSession(){
+			return sessionFactory.getCurrentSession();
+		}
 	
 
 	/**
@@ -83,10 +85,10 @@ public class UserDaoImpl implements UserDao {
 	 * validate method will return true if the credetails are correct else will
 	 * return false
 	 */
-	public boolean validate(String name, String password) {
+	public boolean validate(String username, String password) {
 
 		Query query = sessionFactory.getCurrentSession().createQuery("from User where id = ? and password = ?");
-		query.setString(0, name); // actually the index will start from zero -
+		query.setString(0, username); // actually the index will start from zero -
 									// will get once exception.
 		query.setString(1, password);
 		// in the User table with this id and password there will one or zero
@@ -104,6 +106,7 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<User> list() {
 
 		
@@ -111,21 +114,36 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
-	public User get(String id) {
+	public User get(String userid) {
 
 		// get method get the date from user table based on primary key i.e., id
 		// and set it to User class
 		// like select * from user where id = ?
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		Query query = session.createQuery("from User where  name=?");
-		query.setString(0, id);
+		Query query = session.createQuery("from User where  username=?");
+		query.setString(0, userid);
 		User user = (User) query.uniqueResult();
 		tx.commit();
 		session.flush();
 		session.close();
 		return user;
 
+	}
+
+
+
+	
+	public int  saveOrUpdate(User user) {
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(user);
+		} catch (Exception e) {
+			// if any excpetion comes during execute of try block, catch will
+			// excute
+			e.printStackTrace();
+			return 0;
+		}
+		return 1;
 	}
 
 }

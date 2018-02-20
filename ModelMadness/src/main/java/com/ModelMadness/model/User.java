@@ -12,10 +12,18 @@ import org.springframework.stereotype.Component;
 @Table(name = "User")
 public class User {
 	@Id
-	private String id;
+	private String userid;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "username")
+	private String username;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	@Column(name = "password")
 	private String password;
@@ -31,24 +39,20 @@ public class User {
 
 	// getters + setters
 
-	public String getId() {
-		return id;
-	}
+	
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public void setPassword(String password) {
@@ -78,5 +82,7 @@ public class User {
 	public void setAdress(String adress) {
 		Adress = adress;
 	}
+
+	
 
 }

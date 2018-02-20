@@ -20,12 +20,7 @@ public class CartDaoImpl implements CartDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public CartDaoImpl(SessionFactory sessionFactory){
-		this.sessionFactory=sessionFactory;
-	}
-	public Session getSession(){
-		return sessionFactory.getCurrentSession();
-	}
+
 
 
 	public boolean insert(Cart cart) {
@@ -61,7 +56,7 @@ public class CartDaoImpl implements CartDao {
 	@Override
 	public boolean deleteById(int catid) {
 		try{
-			getSession().delete(catid);
+			sessionFactory.getCurrentSession().delete(catid);
 			return true;
 			
 		}catch(Exception e){
