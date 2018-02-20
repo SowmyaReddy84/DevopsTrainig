@@ -10,5 +10,6 @@ public int saveOrUpdate(Cart cart);
 public boolean deleteById(int catid);
 public List<Cart> getAllCart();
 public Cart getCartById(int Userid);
+public Cart getCartByUsername(String username);
 
 }

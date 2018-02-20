@@ -1,5 +1,6 @@
 package com.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ModelMadness.dao.CartDao;
 import com.ModelMadness.dao.ProductDao;
+import com.ModelMadness.dao.UserDao;
 import com.ModelMadness.dao.UserDetailDao;
 import com.ModelMadness.model.Cart;
 import com.ModelMadness.model.Product;
+import com.ModelMadness.model.User;
 import com.ModelMadness.model.UserDetail;
 
 
@@ -32,6 +35,9 @@ public class ProductController {
 	Cart cart;
 	
 	@Autowired
+	UserDao userDao;
+	
+	@Autowired
 	CartDao cartDao;
 	
 	@Autowired
@@ -40,8 +46,10 @@ public class ProductController {
 	@Autowired
 	UserDetail userDetails;
 	
+	
+	
 	@RequestMapping("prodETAIL")
-	   public ModelAndView getProDetails(@RequestParam(value="Id", required=true) int pid,final RedirectAttributes redirectAttributes)
+	   public ModelAndView getProDetails(@RequestParam(value="Id", required=true) int pid)
 	{
 		   product=productDao.getProductId(pid);
 		   ModelAndView mv=new ModelAndView("ProductDetails");
@@ -49,18 +57,28 @@ public class ProductController {
 		   return mv;
 	}
 	@RequestMapping("addCart")	
-	public String addToCart(@RequestParam(value="Id", required=true) int pid, final RedirectAttributes redirectAttributes)
+	public String addToCart(@RequestParam(value="Id", required=true) int pid,Principal principal)
 	{
-//		product=productDao.getProductId(pid);
-//		List<Cart> clist=cartDao.getAllCart();
-//		int cnt=clist.size();
-//		cnt=cnt+1;
-//		cart.setCartId(cnt);
-//		cart.setId_userId(product.getProductId());
-//		cart.setCartId(product.getProductId());
-//		cart.setProductname(product.getProductName());
-//		cart.setProductprice(555);
+
+	/*	User user=userDao.get(principal.getName());
+		String userid=user.getUserid();
 		product=productDao.getProductId(pid);
+		Cart cart;
+		if(cartDao.getCartByUsername(userid)==null)
+		{
+			cart=this.cart;
+			
+			cart.setProdPrice(product.getPrice());
+			cart.setCatid(pid);
+			cart.setUserid(userid);
+		}else
+		{
+			cart=cartDao.getCartByUsername(userid);
+			cart.set
+		}*/
+		
+		
+		
 		List<Cart> clist =cartDao.getAllCart();
 		int cnt=clist.size();
 		cnt=cnt+1;
