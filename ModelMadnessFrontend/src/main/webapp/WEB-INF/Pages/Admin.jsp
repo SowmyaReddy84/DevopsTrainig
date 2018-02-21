@@ -32,11 +32,11 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1primary">
- <form:form modelAttribute="prod" cssClass="form-horizontal" action="./saveProduct?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
+ <form:form modelAttribute="prod" cssClass="form-horizontal" action="./saveProduct" method="POST" enctype="multipart/form-data">
   <div class="form-group">
-    <label class="control-label col-sm-2" for="pid"><h4 style="color:Black;" ><strong>Product ID:</strong></h4></label>
+    <!-- <label class="control-label col-sm-2" for="pid"><h4 style="color:Black;" ><strong>Product ID:</strong></h4></label> -->
     <div class="col-sm-8">
-      <form:input class="form-control" path="pid" value="${prod.pid}"/>
+      <form:input type="hidden" class="form-control" path="pid" value="${prod.pid}"/>
     </div>
   </div>
     <div class="form-group">

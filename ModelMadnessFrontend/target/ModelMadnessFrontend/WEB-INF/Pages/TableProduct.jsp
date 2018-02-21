@@ -34,10 +34,10 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th><h3 style=color:black;><strong>USER ID</strong></h3></th> 
+        <th><h3 style=color:black;><strong>productID</strong></h3></th> 
           <th><h3 style=color:black;><strong>DISCREPTION</strong></h3></th> 
         <th><h3 style=color:black;><strong>PRODUCT PRICE</strong></h3></th>
-        <th><h3 style=color:black;><strong>USER NAME</strong></h3></th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -49,7 +49,7 @@
           <td><h4 style=color:black;>${pro.pid}</h4></td>
           <td><h4 style=color:black;>${pro.pname}</h4></td>
         <td><h4 style=color:black;>${pro.price}</h4></td>
-      <!--   <td><h4 style=color:black;>${pro.category}</h4></td>--> 
+     
           
           <td>
             <p>

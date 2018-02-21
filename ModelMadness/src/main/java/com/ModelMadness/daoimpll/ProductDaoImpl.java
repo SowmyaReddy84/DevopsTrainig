@@ -58,16 +58,19 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		return 1;
 	}
-	public boolean deleteById(int pid) {
+	public int deleteById(int pid) {
 		try{
-			getSession().delete(pid);
-			return true;
+			Product prdt = new Product();
+			prdt.setPid(pid);
+			sessionFactory.getCurrentSession().delete(prdt);
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			return false;
+			return 0;
 			
 		}
+		return 1;
 		
 	}
 

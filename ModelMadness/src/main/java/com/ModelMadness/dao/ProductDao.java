@@ -13,7 +13,8 @@ import com.ModelMadness.model.Product;
 public interface ProductDao {
 	public boolean insert(Product product);
 	public int saveOrUpdate(Product product);
-	public boolean deleteById(int pid);
+	int deleteById(int productId);
 	public List<Product> getAllProduct();
 	public Product getProductId(int pid);
+	
 }

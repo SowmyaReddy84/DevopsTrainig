@@ -39,7 +39,7 @@ public class SupplierTestCase {
 	@Ignore
 	@Test
 	public void createSupplierTestCase(){
-		supplier.setSid("1013");
+		supplier.setSid(1013);
 	
 		supplier.setMobile("9502673234");
 		supplier.setSname("sujika");
@@ -50,6 +50,7 @@ public class SupplierTestCase {
 		assertEquals("SupplierTestCase",true,flag);
 		
 	}
+	/*
 	
 	@Ignore
 	@Test
@@ -57,7 +58,7 @@ public class SupplierTestCase {
 		Supplier supplier=(Supplier)supplierDao.getSupplier("1013");
 		boolean flag=supplierDao.delete(supplier);
 		assertEquals("SupplierTestCase",true,flag);
-	}
+	}*/
 	
 
 }

@@ -63,7 +63,7 @@ public class AdminController {
 		
 		ModelAndView mv=new ModelAndView("Admin");
 
-		mv.addObject("prod", product);
+		mv.addObject("prod", new Product());
 		return mv;
 	}
 	
@@ -97,7 +97,7 @@ public class AdminController {
 		
 		if(count>0){mv.addObject("success", "Product Data Inserted Succefully");}
 		*/
-		return "redirect:/admin";
+		return "redirect:/listing";
 	}
 
 	@RequestMapping("/saveCategory")
@@ -112,7 +112,7 @@ public class AdminController {
 			
 			return "redirect:/listing";
 	}
-	@RequestMapping("admin/saveSupplier")
+	@RequestMapping("/saveSupplier")
 	  public String savingSupplier(@ModelAttribute("supplier") Supplier supplier, final RedirectAttributes redirectAttributes)
 	  {
 			ModelAndView mv=new ModelAndView();
@@ -122,9 +122,17 @@ public class AdminController {
 			
 		if(count>0){mv.addObject("success", "Supplier Data Inserted Succefully");}
 			
-			return "redirect:/product";
+			return "redirect:/slistig";
 	}
 	
+	@RequestMapping("/slistig")
+	   public ModelAndView getAllSuppliers()
+	   {
+		   ModelAndView mv=new ModelAndView("TableSupplier");
+		   List<Supplier> slist=supplierDao.getAllSupplierList();
+		   mv.addObject("sList", slist);
+		   return mv;
+	   }
 	@RequestMapping("/listing")
 	   public ModelAndView getAllProduct()
 	   {
@@ -150,7 +158,7 @@ public class AdminController {
 		System.out.println("Done rrrrrrrrrrrrrrr ");
 		return "redirect:/logins";
 	}
-	@RequestMapping("admin/edit.do")
+	@RequestMapping("/edit.do")
 	   public ModelAndView getEditProduct(@RequestParam(value="Id", required=true) int productId,final RedirectAttributes redirectAttributes)
 	   {
 		   product=productDao.getProductId(productId);
@@ -159,5 +167,28 @@ public class AdminController {
 		   mv.addObject("prod",product);
 		   return mv;
 	   }
-
+	 @RequestMapping("/del.do")                         
+	   public String getDelProduct(@RequestParam(value="Id", required=true) int pid,final RedirectAttributes redirectAttributes)
+	   {
+		   int x=productDao.deleteById(pid);
+		   System.out.println("deleted "+pid);
+		   return "redirect:/listing";
+	   }
+	 @RequestMapping("/sedit.do")
+	   public ModelAndView getEditSupplier(@RequestParam(value="Id", required=true) String sid,final RedirectAttributes redirectAttributes)
+	   {	supplier =supplierDao.getSupplier(sid);
+		  
+		   System.out.println("ddddddddddddddddd"+supplier.getSname());
+		   ModelAndView mv=new ModelAndView("FormAddSupplier");
+		   mv.addObject("supplier",supplier);
+		   return mv;
+	   }
+	 @RequestMapping("/sdel.do")                         
+	   public String getDelSupplier(@RequestParam(value="Id", required=true) int sid,final RedirectAttributes redirectAttributes)
+	   {
+		  supplierDao.delete(sid);
+		   System.out.println("deleted "+sid);
+		   return "redirect:/slistig";
+	   }
+	 
 }

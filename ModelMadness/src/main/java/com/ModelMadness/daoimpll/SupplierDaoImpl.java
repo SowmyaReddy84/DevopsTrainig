@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ModelMadness.dao.SupplierDao;
+import com.ModelMadness.model.Product;
 import com.ModelMadness.model.Supplier;
 
 
@@ -67,18 +68,22 @@ public class SupplierDaoImpl implements SupplierDao{
 	public Supplier getSupplier(String id) {
 		return (Supplier)sessionFactory.getCurrentSession().createQuery("from Supplier where id='"+id+"'").uniqueResult();
 	}
-	public boolean delete(Supplier supplier) {
+	public int delete(int sid) {
 		try{
-			getSession().delete(supplier);
-			return true;
+			Supplier splr = new Supplier();
+			splr.setSid(sid);
+			sessionFactory.getCurrentSession().delete(splr);
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			return false;
+			return 0;
 			
 		}
+		return 1;
 		
 	}
+
 
 	
 

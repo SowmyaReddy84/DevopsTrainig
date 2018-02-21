@@ -12,6 +12,7 @@
 	<http>
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		  <intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
+		  <intercept-url pattern="/dummy" access="hasRole('ROLE_USER')"/>
 		<!-- access denied page -->
 		<!-- <access-denied-handler error-page="/403" />  -->
 		<form-login 
@@ -21,9 +22,12 @@
 		    username-parameter="username"
 			password-parameter="password" 
 		    login-processing-url="/j_spring_security_check"/>
-		<logout logout-success-url="/"  />
-		<csrf />
-		<!-- enable csrf protection -->
+		    
+		    
+		 <logout logout-success-url="/" logout-url="/logout"
+			delete-cookies="JSESSIONID" />
+		
+		<csrf disabled="true" />	
 		
 	</http>
 	

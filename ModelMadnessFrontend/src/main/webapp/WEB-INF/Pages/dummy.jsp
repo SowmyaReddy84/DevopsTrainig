@@ -10,7 +10,7 @@
  This is dummy  paage
 
 
-
+<a href="logout">Logout</a>
 
 
 </body>

@@ -52,7 +52,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"style=margin-right:30px">
   
       <ul class="nav navbar-nav"style=margin-right:30px">
-         <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+         <li><a href="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 
                  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boys & Men <span class="caret"></span></a>
@@ -144,6 +144,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+         <li><a href="${pageContext.request.contextPath}/logout">Logout User</a></li>
       <li>
           <a href="#" class="btn btn-link"><span ></span>Hi :${pageContext.request.userPrincipal.name}
          
@@ -155,20 +156,21 @@
           <ul class="dropdown-menu">
             <li><c:if test="${pageContext.request.userPrincipal.name== null}">
             
-            <a href="logins"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></c:if></li>
+            <a href="login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbspLogin</a></c:if></li>
             <li><a href="register"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Register</a></li>
             <li><c:if test="${pageContext.request.userPrincipal.name!= null}">
-            <a href="javascript:formSubmit()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></c:if></li>
+            <a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></c:if></li>
             <li> 
          <a href="totablecart" class="btn btn-primary">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</a>
       
-     
-        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+  
+        <%-- <c:url value="/logout" var="logoutUrl" />
         <form action="${logoutUrl}" method="post" id="logoutForm">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
-		</form>
+		</form>--%>
+	
 		<script>
 			function formSubmit() {
 				document.getElementById("logoutForm").submit();

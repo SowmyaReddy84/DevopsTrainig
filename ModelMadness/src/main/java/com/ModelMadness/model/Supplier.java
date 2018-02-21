@@ -18,13 +18,15 @@ import javax.persistence.Table;
 	@Table(name = "Supplier")
 	public class Supplier {
 		@Id
-		private String sid;
+		private int sid;
 
-		public String getSid() {
+	
+
+		public int getSid() {
 			return sid;
 		}
 
-		public void setSid(String sid) {
+		public void setSid(int sid) {
 			this.sid = sid;
 		}
 

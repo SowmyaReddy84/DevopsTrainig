@@ -14,7 +14,7 @@
 <meta name="author" content="">
 
 
-<title>Ornatus</title>
+<title>ModelMadness</title>
 
 <!-- Bootstrap core CSS -->
 

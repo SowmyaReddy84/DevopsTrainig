@@ -78,6 +78,19 @@ public class CartDaoImpl implements CartDao {
 		return (Cart)sessionFactory.getCurrentSession().createQuery("from Cart where Userid='"+Userid+"'").uniqueResult();
 	}
 
+	@Override
+	public Cart getCartByUsername(String username) {
+		// TODO Auto-generated method stub
+		try {
+			return (Cart)sessionFactory.getCurrentSession().createQuery("From Cart where userid=:userid")
+			.setParameter("userid", username)
+			.uniqueResult();
+		}catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+
 	
 
 }
