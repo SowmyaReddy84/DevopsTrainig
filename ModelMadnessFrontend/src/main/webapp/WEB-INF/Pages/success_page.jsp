@@ -44,7 +44,7 @@
 <div class="container">
   <h3 style="text-align: center;"><u> "SUCCESSFULLY REGISTERED"</u></h3>
   <h4 style="text-align: center;">Your order will reach within 7 business days </h4> 
-   <h4 style="text-align: center;">Thanks for shopping in Women's World </h4> 
+   <h4 style="text-align: center;">Thanks for shopping in Model Madness </h4> 
     <h4 style="text-align: center;">To continue shopping please click on "Back" button </h4> 
  
 		<br>

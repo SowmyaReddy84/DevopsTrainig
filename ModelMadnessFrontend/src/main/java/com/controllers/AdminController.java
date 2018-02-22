@@ -142,22 +142,7 @@ public class AdminController {
 		   return mv;
 	   }
 	
-	@RequestMapping("insertuserd")
-	public String storeuser(@ModelAttribute("userd") User user, final RedirectAttributes redirectAttributes){
-		//		  redirectAttributes.addAttribute("message", "true");
-		//		  redirectAttributes.addAttribute("user",userDetails);
-		ModelAndView mv =new ModelAndView();
-		
-		System.out.println("DOne "+user.getUsername());
-		int count=0;
-		
-		
-		user.setRole("ROLE_USER");
-		count=userDao.saveOrUpdate(user);
-		if(count>0){mv.addObject("success", "you have reistered Succefully");}
-		System.out.println("Done rrrrrrrrrrrrrrr ");
-		return "redirect:/logins";
-	}
+
 	@RequestMapping("/edit.do")
 	   public ModelAndView getEditProduct(@RequestParam(value="Id", required=true) int productId,final RedirectAttributes redirectAttributes)
 	   {

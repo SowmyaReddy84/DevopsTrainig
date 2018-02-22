@@ -35,13 +35,13 @@
     
   </div>
     <div class="form-group">
-    <label class="control-label col-sm-2" for="email"><h4 style="color:Black;" ><strong>ProductName</strong></h4></label>
+    <label class="control-label col-sm-2" for="email"><h4 style="color:Black;" ><strong>UserName</strong></h4></label>
   
       <form:input class="form-control" path="username" value="${userd.username }"/>
 
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="price"><h4 style="color:black;"><strong>Price:</strong></h4></label>
+    <label class="control-label col-sm-2" for="price"><h4 style="color:black;"><strong>Password</strong></h4></label>
     <div class="col-sm-8"> 
       <form:input class="form-control" path="password"  value="${userd.password }" />
     </div>
